@@ -18,12 +18,10 @@ db.init_app(app)
 def home():
     return '<h1>Bakery GET-POST-PATCH-DELETE API</h1>'
 
-
 @app.route('/bakeries')
 def bakeries():
     bakeries = [bakery.to_dict() for bakery in Bakery.query.all()]
     return make_response(  bakeries,   200  )
-
 
 @app.route('/bakeries/<int:id>', methods=['GET', 'PATCH'])
 def bakery_by_id(id):
@@ -95,7 +93,6 @@ def baked_good_by_id(id):
                 bgood_dict,
                 200
             )
-
             return response
 
         elif request.method == 'PATCH':
@@ -112,7 +109,6 @@ def baked_good_by_id(id):
                 bgood_dict,
                 200
             )
-
             return response
 
         elif request.method == 'DELETE':
@@ -128,7 +124,6 @@ def baked_good_by_id(id):
                 response_body,
                 200
             )
-
             return response
 
 
